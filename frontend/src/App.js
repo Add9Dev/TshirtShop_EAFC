@@ -9,7 +9,7 @@ function Home() {
       .then((data) => setCategories(data))
       .catch((err) => console.error("Erreur API :", err));
   }, []);
-
+    
   return (
     <div className="home">
 
