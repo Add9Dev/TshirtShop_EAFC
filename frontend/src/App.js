@@ -1,27 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from 'react';
+import Home from './pages/Home/Home';  // adapte le chemin si besoin
+import './styles/index.css';  // ton CSS global
 
-function Home() {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:8080/api/categories")
-      .then((res) => res.json())
-      .then((data) => setCategories(data))
-      .catch((err) => console.error("Erreur API :", err));
-  }, []);
-
+function App() {
   return (
-    <div className="home">
-
-      <h2>Catégories disponibles</h2>
-      <ul>
-        {categories.map((category) => (
-          <li key={category.id}>{category.name}</li>
-        ))}
-
-      </ul>
+    <div>
+      <Home />
     </div>
   );
 }
 
-export default Home;
+export default App;
