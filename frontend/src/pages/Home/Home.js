@@ -12,7 +12,7 @@ function Home() {
   const selectedCategoryId = urlParams.get("categoryId");
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/categories")
+    fetch("/api/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch(() => setError("Impossible de charger les catégories"));
@@ -20,7 +20,7 @@ function Home() {
 
   useEffect(() => {
     if (selectedCategoryId) {
-      fetch(`http://localhost:8080/api/products/byCategory?categoryId=${selectedCategoryId}`)
+      fetch(`/api/products/byCategory?categoryId=${selectedCategoryId}`)
         .then((res) => res.json())
         .then((data) => setProducts(data))
         .catch(() => setError("Impossible de charger les produits"));
