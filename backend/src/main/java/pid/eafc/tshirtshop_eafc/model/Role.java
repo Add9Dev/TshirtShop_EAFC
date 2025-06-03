@@ -6,8 +6,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Category", schema = "tshirtdb")
-public class Category {
+@Table(name = "Role", schema = "tshirtdb")
+public class Role {
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;

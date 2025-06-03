@@ -6,13 +6,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Category", schema = "tshirtdb")
-public class Category {
+@Table(name = "Size", schema = "tshirtdb")
+public class Size {
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false, length = 4)
     private String name;
 
     public Integer getId() {
