@@ -1,19 +1,22 @@
 package pid.eafc.tshirtshop_eafc.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
 
 @Entity
-@Table(name = "Product_image", schema = "tshirtdb", indexes = {
-        @Index(name = "product_id", columnList = "product_id")
+@Table(name = "product_image", schema = "tshirtdb", indexes = {
+        @Index(name = "idx_product_image_product_id", columnList = "product_id")
 })
 public class ProductImage {
+
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "product_id", nullable = false)
+    @JsonIgnore
     private Product product;
 
     @Column(name = "image_url", nullable = false)
@@ -22,9 +25,17 @@ public class ProductImage {
     @Column(name = "alt_text")
     private String altText;
 
-    @ColumnDefault("0")
-    @Column(name = "is_primary")
-    private Boolean isPrimary;
+    @Column(name = "is_primary", nullable = false)
+    @ColumnDefault("false")
+    private Boolean isPrimary = false;
+
+    public ProductImage() {}
+
+    public ProductImage(String imageUrl, String altText, Boolean isPrimary) {
+        this.imageUrl = imageUrl;
+        this.altText = altText;
+        this.isPrimary = isPrimary != null ? isPrimary : false;
+    }
 
     public Integer getId() {
         return id;
@@ -65,5 +76,4 @@ public class ProductImage {
     public void setIsPrimary(Boolean isPrimary) {
         this.isPrimary = isPrimary;
     }
-
 }
