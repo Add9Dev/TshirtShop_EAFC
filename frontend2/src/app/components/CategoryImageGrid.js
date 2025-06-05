@@ -7,6 +7,25 @@ const categories = [
     { title: "T-shirts de sport", image: "/cat_img/4.webp", ratio: "4/3", link: "4" },
 ]
 
+export default function CategoryGrid() {
+    return (
+        <div style={styles.wrapper}>
+            {categories.map((cat, i) => (
+                <div
+                    key={i}
+                    style={{
+                        ...styles.item,
+                        ...(i >= 2 ? styles.offset : {}),
+                    }}
+                >
+                    <CategoryImageBox {...cat} />
+                </div>
+            ))}
+        </div>
+    )
+}
+
+
 const styles = {
     wrapper: {
         display: 'flex',
@@ -26,22 +45,4 @@ const styles = {
     offset: {
         marginTop: '-120px',
     },
-}
-
-export default function CategoryGrid() {
-    return (
-        <div style={styles.wrapper}>
-            {categories.map((cat, i) => (
-                <div
-                    key={i}
-                    style={{
-                        ...styles.item,
-                        ...(i >= 2 ? styles.offset : {}),
-                    }}
-                >
-                    <CategoryImageBox {...cat} />
-                </div>
-            ))}
-        </div>
-    )
 }
