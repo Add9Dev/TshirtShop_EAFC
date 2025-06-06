@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Menu, MenuItem, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
+// This component renders a button that opens a dropdown menu with categories fetched from an API.
 export default function CategoriesMenu() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);

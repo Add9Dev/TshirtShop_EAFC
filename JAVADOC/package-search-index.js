@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"pid.eafc.tshirtshop_eafc"},{"l":"pid.eafc.tshirtshop_eafc.configs"},{"l":"pid.eafc.tshirtshop_eafc.controllers"},{"l":"pid.eafc.tshirtshop_eafc.dto"},{"l":"pid.eafc.tshirtshop_eafc.model"},{"l":"pid.eafc.tshirtshop_eafc.repository"}];updateSearchResults();

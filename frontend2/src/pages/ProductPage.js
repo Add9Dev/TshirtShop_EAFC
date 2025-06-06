@@ -7,7 +7,11 @@ import {
     CircularProgress,
     Tooltip
 } from "@mui/material";
-
+// This component displays a single product page with details and images.
+// It fetches product data from an API and displays it in a structured layout.
+// The product details include name, description, price, size, stock, and color.
+// The images are displayed in a scrollable gallery on the left side, and the product details are shown on the right side.
+// The page also handles loading states and displays a spinner while fetching data.
 export default function ProductPage() {
     const { id } = useParams();
     const [product, setProduct] = useState(null);

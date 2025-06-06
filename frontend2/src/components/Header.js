@@ -5,8 +5,12 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CategoriesMenu from "./CategoryMenu";
 import { Link } from "react-router-dom";
 
-
-const menuItems = ["TOUT NOS PRODUITS", "CONTACT"];
+// Tableau des éléments de menu avec leurs liens associés
+const menuItems = [
+    { label: "TOUS NOS PRODUITS", path: "/produits" },
+    { label: "CONTACT", path: "/contact" },
+    { label: "LEGAL", path: "/legal" },
+];
 
 export default function Header() {
     return (
@@ -31,9 +35,11 @@ export default function Header() {
                             variant="button"
                             color="white"
                             fontWeight={700}
-                            sx={{ cursor: "pointer" }}
+                            component={Link}
+                            to={item.path}
+                            sx={{ cursor: "pointer", textDecoration: "none" }}
                         >
-                            {item}
+                            {item.label}
                         </Typography>
                     ))}
                 </Box>

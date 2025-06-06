@@ -8,7 +8,9 @@ import {
     Paper,
     Tooltip
 } from "@mui/material";
-
+// This component displays products of a specific category.
+// It fetches products from an API based on the category ID from the URL parameters.
+//// The products are displayed in a grid layout with images, names, and prices.
 export default function CategoryProductsPage() {
     const { id } = useParams();
     const navigate = useNavigate();
