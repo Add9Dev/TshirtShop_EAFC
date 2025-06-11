@@ -3,57 +3,57 @@ package pid.eafc.tshirtshop_eafc.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pid.eafc.tshirtshop_eafc.model.Category;
-import pid.eafc.tshirtshop_eafc.repository.CategoryRepository;
+import pid.eafc.tshirtshop_eafc.model.Size;
+import pid.eafc.tshirtshop_eafc.repository.SizeRepository;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/categories")
-public class CategoryController {
+@RequestMapping("/api/sizes")
+public class SizeController {
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private SizeRepository sizeRepository;
 
     @GetMapping
-    public ResponseEntity<?> getAllCategories() {
+    public ResponseEntity<?> getAllSizes() {
         try {
-            List<Category> categories = categoryRepository.findAll();
+            List<Size> sizes = sizeRepository.findAll();
             Map<String, Object> response = new HashMap<>();
             response.put("status", "success");
-            response.put("data", categories);
+            response.put("data", sizes);
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             Map<String, Object> response = new HashMap<>();
             response.put("status", "error");
-            response.put("message", "Erreur lors de la récupération des catégories");
+            response.put("message", "Erreur lors de la récupération des tailles");
             return ResponseEntity.internalServerError().body(response);
         }
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getCategoryById(@PathVariable Long id) {
+    public ResponseEntity<?> getSizeById(@PathVariable Long id) {
         try {
-            return categoryRepository.findById(id)
-                    .map(category -> {
+            return sizeRepository.findById(id)
+                    .map(size -> {
                         Map<String, Object> response = new HashMap<>();
                         response.put("status", "success");
-                        response.put("data", category);
+                        response.put("data", size);
                         return ResponseEntity.ok(response);
                     })
                     .orElseGet(() -> {
                         Map<String, Object> response = new HashMap<>();
                         response.put("status", "error");
-                        response.put("message", "Catégorie non trouvée");
+                        response.put("message", "Taille non trouvée");
                         return ResponseEntity.notFound().build();
                     });
         } catch (Exception e) {
             Map<String, Object> response = new HashMap<>();
             response.put("status", "error");
-            response.put("message", "Erreur lors de la récupération de la catégorie");
+            response.put("message", "Erreur lors de la récupération de la taille");
             return ResponseEntity.internalServerError().body(response);
         }
     }
-}
+} 

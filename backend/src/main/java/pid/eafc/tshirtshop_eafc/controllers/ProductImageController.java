@@ -26,7 +26,7 @@ public class ProductImageController {
      * @return JSON list of product images for the specified product ID
      */
     @GetMapping("/{id}")
-    public ResponseEntity<List<ProductImage>> getProductImagesByProductId(@PathVariable Long id) {
+    public ResponseEntity<List<ProductImage>> getProductImagesByProductId(@PathVariable Integer id) {
         List<ProductImage> productImages = productImageRepository.findAllByProductId(id);
 
         if (productImages.isEmpty()) {

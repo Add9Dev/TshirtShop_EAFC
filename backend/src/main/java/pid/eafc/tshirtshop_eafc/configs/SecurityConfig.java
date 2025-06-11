@@ -3,12 +3,13 @@ package pid.eafc.tshirtshop_eafc.configs;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 /**
  * Configuration class for security settings.
- * This class configures the security filter chain to disable CSRF protection
- * and allows all requests without authentication.
+ * This class configures the security filter chain and password encoder.
  */
 @Configuration
 public class SecurityConfig {
@@ -30,5 +31,16 @@ public class SecurityConfig {
                         .anyRequest().permitAll()
                 );
         return http.build();
+    }
+
+    /**
+     * Creates a password encoder bean using BCrypt.
+     * This encoder will be used to hash passwords before storing them in the database.
+     *
+     * @return a BCryptPasswordEncoder instance
+     */
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

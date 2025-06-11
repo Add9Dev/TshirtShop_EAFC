@@ -5,6 +5,6 @@ import pid.eafc.tshirtshop_eafc.model.ProductImage;
 
 import java.util.List;
 
-public interface ProductImageRepository extends JpaRepository<ProductImage, Long> {
-    List<ProductImage> findAllByProductId(Long productId);
+public interface ProductImageRepository extends JpaRepository<ProductImage, Integer> {
+    List<ProductImage> findAllByProductId(Integer product_id);
 }
