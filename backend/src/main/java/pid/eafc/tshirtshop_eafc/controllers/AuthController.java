@@ -24,6 +24,7 @@ public class AuthController {
         Map<String, Object> response = new HashMap<>();
         
         try {
+
             authService.register(request);
             response.put("status", "success");
             response.put("message", "Utilisateur enregistré avec succès");
@@ -42,4 +43,6 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
-} 
+
+
+}

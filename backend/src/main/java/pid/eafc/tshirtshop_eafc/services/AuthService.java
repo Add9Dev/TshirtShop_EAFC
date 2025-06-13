@@ -13,6 +13,7 @@ import java.time.Instant;
 
 @Service
 public class AuthService {
+    pas
 
     @Autowired
     private UserRepository userRepository;
@@ -60,6 +61,7 @@ public class AuthService {
         user.setMail(request.getMail().trim().toLowerCase());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setCreatedAt(Instant.now());
+
 
         // Récupérer le rôle "user" (id = 1)
         Role userRole = roleRepository.findById(1)

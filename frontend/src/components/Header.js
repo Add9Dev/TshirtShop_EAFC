@@ -46,7 +46,10 @@ export default function Header() {
 
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                     <IconButton>
-                        <PersonOutlineIcon sx={{ color: "white" }} />
+                        <Link to="/auth">
+    <PersonOutlineIcon sx={{ color: "white" }} />
+</Link>
+                        
                     </IconButton>
                     <IconButton>
                         <Badge badgeContent={0} color="info">
